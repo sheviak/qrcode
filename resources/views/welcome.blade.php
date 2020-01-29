@@ -139,7 +139,7 @@
                                 <p>Parameters</p>
                                 <div id="set-form">
                                     <!-- install form -->
-                                    <div class="form-group">
+                                    <div class="form-group text-left">
                                         <label for="link">Link</label>
                                         <input name="link" type="text" class="form-control" placeholder="Enter Link" required>
                                     </div>
@@ -149,9 +149,9 @@
 
                         </div>
                         <div class="center-block">
-                            <input type="hidden" name="selected_form" value="link">
+                            <input type="hidden" id="selected_form" name="selected_form" value="link">
                             <!-- <input  type="submit" id="form" value="btn"> -->
-                            <input type="button" id='form' style = 'cursor: pointer;'>Create</div>
+                            <input type="button" id='form' style = 'cursor: pointer;' value="Create">
                         </div>
                     </form>
 
