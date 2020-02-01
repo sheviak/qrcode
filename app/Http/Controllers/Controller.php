@@ -21,6 +21,8 @@ class Controller extends BaseController
     {
         // тут надо сделать проверку 
         // code..
+        //TODO:: vCard, Decode qr-code
+        // добавить свойство Margin (поле) QrCode::margin(100);
 
         $this->qrcode = new BaconQrCodeGenerator();
         $this->SetDefaultValue($request);
@@ -42,6 +44,9 @@ class Controller extends BaseController
             case "sms":
                 $this->createSMS($request);
             break;
+            case "wifi":
+                $this->createWiFi($request);
+            break;
         }
 
         return json_encode(['qrcode_url' => $this->path]);
@@ -57,6 +62,7 @@ class Controller extends BaseController
             ->encoding('UTF-8')
             ->errorCorrection($baseVal->errors_correction)
             ->size($baseVal->size)
+            ->margin($baseVal->margin)
             ->color($fcolor[0], $fcolor[1], $fcolor[2])
             ->backgroundColor($bcolor[0], $bcolor[1], $bcolor[2]);
     }
@@ -108,8 +114,71 @@ class Controller extends BaseController
         );
     }
 
-    //TODO:: сделать Wi-Fi, vCard, Decode qr-code
+    function createWiFi(Request $request)
+    {
+        if($request->hidden != null && 
+            $request->hidden == "on" && 
+            $request->ssid != "" && 
+            $request->pass != "" &&
+            $request->typeNetwork != ""){
 
+            file_put_contents(
+                $this->path,
+                $this->qrcode->wiFi([
+                    'encryption' => $request->typeNetwork,
+                    'ssid' => $request->ssid,
+                    'password' => $request->pass,
+                    'hidden' => true
+                ])
+            );
+        }
+
+        // Подключается к открытой сети WiFi.
+        if($request->hidden == null && 
+            $request->pass == "" &&
+            $request->ssid == "" &&
+            $request->typeNetwork == ""){
+
+            file_put_contents(
+                $this->path,
+                $this->qrcode->wiFi([
+                    'ssid' => $request->ssid,
+                ])
+            );
+        }
+
+        // Подключается к открытой, скрытой сети WiFi.
+        if($request->hidden == "on" && 
+            $request->ssid != "" &&
+            $request->pass == "" &&
+            $request->typeNetwork == ""){
+            
+            file_put_contents(
+                $this->path,
+                $this->qrcode->wiFi([
+                    'ssid' => $request->ssid,
+	                'hidden' => 'true'
+                ])
+            );
+        }
+
+        // Подключается к защищенной сети.
+        if($request->hidden == null &&
+            $request->ssid != "" &&
+            $request->pass != "" &&
+            $request->typeNetwork != ""){
+            
+            file_put_contents(
+                $this->path,
+                $this->qrcode->wiFi([
+                    'ssid' => $request->ssid,
+                    'encryption' => $request->typeNetwork,
+                    'password' => $request->pass
+                ])
+            );
+        }
+    }
+    
     // перевод цвета из HEX в RGB
     function HexToRgb($hex) {
         $hex = str_replace("#", "", $hex);
@@ -127,5 +196,4 @@ class Controller extends BaseController
         //return implode(",", $rgb); // returns the rgb values separated by commas
         return $rgb; // returns an array with the rgb values
     }
-
 }

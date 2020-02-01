@@ -3,7 +3,6 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <title>QR-CODE</title>
 
         <!-- Fonts -->
@@ -68,57 +67,59 @@
         </style>
     </head> 
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
+        <div class="flex-center p-3">
             <div class="content">
+                <div class="text-right">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <a href="{{ route('locale', ['locale' => 'en']) }}">EN</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="{{ route('locale', ['locale' => 'ru']) }}">RU</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="{{ route('locale', ['locale' => 'ua']) }}">UA</a>
+                        </li>
+                    </ul>
+                </div>
+
                 <div class="title m-b-md">
                     QR-CODE
                 </div>
-
+                    
                 <div class="links">
-                    <a href="#" onclick="linkForm();">LINK</a>
-                    <a href="#" onclick="emailForm();">EMAIL</a>
-                    <a href="#" onclick="geoForm();">GEO</a>
-                    <a href="#" onclick="telForm();">TELEPHONE</a>
-                    <a href="#" onclick="smsForm();">SMS</a>
-                    <a href="#" onclick="wifiForm();">WI-FI</a>
-                    <a href="#" onclick="vcardForm();">VCARD</a>
-                    <a href="#" onclick="decode();">DECODE</a>
+                    <a href="link">LINK</a>
+                    <a href="email">EMAIL</a>
+                    <a href="geo">GEO</a>
+                    <a href="tel">TELEPHONE</a>
+                    <a href="sms">SMS</a>
+                    <a href="wifi">WI-FI</a>
+                    <a href="#">VCARD</a>
+                    <a href="#">DECODE</a>
                 </div>
-
                 <div class="container m-3 p-3">
-
                     <form id="form-data">
                         <div class="row">
                             <div id="base-settings" class="col-sm">
-                                <p>Settings</p>
+                                <p>{{ trans('page.lblSettings') }}</p>
                                 <div class="form-group text-left">
-                                    <label for="background_color">Background color</label>
-                                    <input name="background_color" type="text" class="form-control" placeholder="Enter Background color" value="FFFFFF" required>
+                                    <label for="background_color">{{ trans('page.bColor') }}</label>
+                                    <input name="background_color" type="text" class="form-control" placeholder="{{ trans('page.pceholderBcolor') }}" value="FFFFFF" required>
                                 </div>
                                 <div class="form-group text-left">
-                                    <label for="foreground_color">Foreground color</label>
-                                    <input name="foreground_color" type="text" class="form-control" placeholder="Enter Foreground color" value="000000" required>
+                                    <label for="foreground_color">{{ trans('page.fColor') }}</label>
+                                    <input name="foreground_color" type="text" class="form-control" placeholder="{{ trans('page.pceholderFcolor') }}" value="000000" required>
                                 </div>
                                 <div class="form-group text-left">
-                                    <label for="size">Size (px)</label>
-                                    <input name="size" type="text" class="form-control" placeholder="Enter Size" value="300" required>
+                                    <label for="size">{{ trans('page.sizePicture') }}</label>
+                                    <input name="size" type="text" class="form-control" placeholder="{{ trans('page.pceholderSize') }}" value="300" required>
                                 </div>
                                 <div class="form-group text-left">
-                                    <label for="errors_correction">Error correction</label> <!--  Коррекция ошибок -->
+                                    <label for="margin">{{ trans('page.margin') }}</label>
+                                    <input name="margin" type="text" class="form-control" placeholder="{{ trans('page.pceholdermargin') }}" value="1" required>
+                                </div>
+                                <div class="form-group text-left">
+                                    <label for="errors_correction">{{ trans('page.error_correction') }}</label>
                                     <select name="errors_correction" class="form-control" required>
                                         <option value="L">L</option>
                                         <option value="M">M</option>
@@ -127,7 +128,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group text-left">
-                                    <label for="format">Set format output file</label> <!-- формат  -->
+                                    <label for="format">{{ trans('page.formatFile') }}</label>
                                     <select name="format" class="form-control" required>
                                         <option value="png">PNG</option>
                                         <option value="eps">EPS</option>
@@ -136,27 +137,19 @@
                                 </div>
                             </div>
                             <div class="col-sm">
-                                <p>Parameters</p>
+                                <p>{{ trans('page.lblParams') }}</p>
                                 <div id="set-form">
-                                    <!-- install form -->
-                                    <div class="form-group text-left">
-                                        <label for="link">Link</label>
-                                        <input name="link" type="text" class="form-control" placeholder="Enter Link" required>
-                                    </div>
+                                    @include('partials.' . $page) 
                                 </div>
                             </div>
-
-
                         </div>
-                        <div class="center-block">
-                            <input type="hidden" id="selected_form" name="selected_form" value="link">
+                        <div class="center-block m-3 p-3">
+                            <input type="hidden" id="selected_form" name="selected_form" value="{{ $page }}">
                             <!-- <input  type="submit" id="form" value="btn"> -->
-                            <input type="button" id='form' style = 'cursor: pointer;' value="Create">
+                            <input type="button" id='form' class='btn btn-outline-secondary' value="{{ trans('page.create') }}">
                         </div>
                     </form>
-
-                    <div id="output" class="col-sm">
-                    </div>
+                    <div id="output" class="col-sm"></div>
                 </div>
             </div>
         </div>

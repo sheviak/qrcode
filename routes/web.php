@@ -11,8 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('locale/{locale}', function ($locale) {
+    Session::put('locale', $locale);
+    return redirect()->back();
+})->name('locale');
 
 Route::get('/api', 'Controller@index')->name('index');
+
+Route::get('/{page?}', function ($page = 'link') {
+    return view('welcome')->with('page', $page);
+});
