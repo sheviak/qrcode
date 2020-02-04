@@ -16,7 +16,9 @@ Route::get('locale/{locale}', function ($locale) {
     return redirect()->back();
 })->name('locale');
 
-Route::get('/api', 'Controller@index')->name('index');
+Route::post('/api', 'Controller@index')->name('index');
+
+Route::post('/api/decode', 'DecodeController@index')->name('index');
 
 Route::get('/{page?}', function ($page = 'link') {
     return view('welcome')->with('page', $page);

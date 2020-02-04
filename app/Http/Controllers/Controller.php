@@ -14,20 +14,19 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    var $qrcode;
-    var $path = "qrcode_images/";
+    private $qrcode = null;
+    private $path = "qrcode_images/";
+    private $logoName = "";
 
     public function index(Request $request)
     {
-        // тут надо сделать проверку 
-        // code..
-        //TODO:: vCard, Decode qr-code
-        // добавить свойство Margin (поле) QrCode::margin(100);
+        $this->path = $this->path . bin2hex(random_bytes(5)) . '.' . $request->format;
+        $this->logoName = bin2hex(random_bytes(5));
 
         $this->qrcode = new BaconQrCodeGenerator();
+        $this->CreateWithLogoIfExist($request);
         $this->SetDefaultValue($request);
-        $this->path = $this->path . bin2hex(random_bytes(5)) . '.' . $request->format;
-
+        
         switch($request->selected_form){
             case "link":
                 $this->createLink($request);
@@ -38,7 +37,7 @@ class Controller extends BaseController
             case "geo":
                 $this->createGeo($request);
             break;
-            case "phoneNumber":
+            case "tel":
                 $this->createPhoneNumber($request);
             break;
             case "sms":
@@ -47,21 +46,40 @@ class Controller extends BaseController
             case "wifi":
                 $this->createWiFi($request);
             break;
+            case "vcard":
+                $this->createVCard($request);
+            break;
+            default:
+                return json_encode(['error' => "Incorrect data!"]);
         }
-
+        
         return json_encode(['qrcode_url' => $this->path]);
     }
 
-    public function SetDefaultValue(Request $baseVal)
+    function CreateWithLogoIfExist(Request $request)
+    {
+        if($request->hasFile('logo')) {
+            $file = $request->file('logo');
+            $file->move(public_path() . '/logo', $this->logoName . '.png');
+            $this->qrcode
+                ->format('png')
+                ->merge(public_path() . '/logo' . '/' . $this->logoName . '.png', .3, true)
+                ->errorCorrection('H');
+        } else {
+            $this->qrcode
+                ->format($request->format)
+                ->errorCorrection($request->errors_correction);
+        }
+    }
+
+    function SetDefaultValue(Request $baseVal)
     {
         $bcolor = $this->HexToRgb($baseVal->background_color);
         $fcolor = $this->HexToRgb($baseVal->foreground_color);
 
-        return $this->qrcode
-            ->format($baseVal->format)
-            ->encoding('UTF-8')
-            ->errorCorrection($baseVal->errors_correction)
+        $this->qrcode
             ->size($baseVal->size)
+            ->encoding('UTF-8')
             ->margin($baseVal->margin)
             ->color($fcolor[0], $fcolor[1], $fcolor[2])
             ->backgroundColor($bcolor[0], $bcolor[1], $bcolor[2]);
@@ -177,6 +195,23 @@ class Controller extends BaseController
                 ])
             );
         }
+    }
+
+    function createVCard(Request $request)
+    {
+        $content = "BEGIN:VCARD" . "\n";
+        $content .= "VERSION:3.0" . "\n";
+        $content .= "N:" . $request->lastName . ";" . $request->firstName . ";" . $request->secondName . "\n";
+        $content .= "EMAIL:" . $request->email . "\n";
+        $content .= "TEL;TYPE=cell:" . $request->phoneNumberHome . "\n";
+        $content .= "TEL;TYPE=work:" . $request->phoneNumberWork . "\n";
+        $content .= "ORG:" . $request->company . "\n";
+        $content .= "TITLE:" . $request->position . "\n";
+        $content .= "URL:" . $request->website . "\n";
+        $content .= "ADR;TYPE=home:" . $request->address . "\n";
+        $content .= "END:VCARD" . "\n";
+
+        $this->qrcode->generate($content, $this->path);
     }
     
     // перевод цвета из HEX в RGB

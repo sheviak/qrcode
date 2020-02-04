@@ -14,9 +14,11 @@ return [
   'error_correction' => 'Error correction',
   'formatFile' => 'Set format output file',
   'margin' => 'Margin',
+  'logo' => 'Logo',
+  'btnFile' => 'Clear file',
   /* для страницы Link */
   'lblLink' => 'Link',
-  'pceholderLink' => 'Enter Link',
+  'pceholderLink' => 'https://google.com',
   /* для страницы Email */
   'lblEmail' => 'Email',
   'pceholderEmail' => 'Enter Email',
@@ -26,9 +28,9 @@ return [
   'pceholderMessage' => 'Enter Message',
   /* для страницы Geo */
   'lblLatitude' => 'Latitude',
-  'pceholderLatitude' => 'Enter Latitude',
+  'pceholderLatitude' => 'Enter Latitude (50.45466)',
   'lblLongitude' => 'Longitude',
-  'pceholderLongitude' => 'Enter Longitude',
+  'pceholderLongitude' => 'Enter (30.5238)',
   /* для страницы Phone number */
   'lblPhone' => 'Phone number',
   'pceholderPhome' => 'Enter Phone number',
@@ -43,4 +45,26 @@ return [
   'lblTypeNetwork' => 'Encryption',
   'encryption' => 'No encryption',
   'hidden' => 'Hidden?',
+  /* для страницы Decode */ 
+  'lblQrcode' => 'Decrypt QR code online',
+  'btnDecode' => 'Decode Qr code',
+  /* для страницы vCard */ 
+  'lblLastName' => 'Last name',
+  'lblFirstName' => 'First name',
+  'lblSecondName' => 'Second name',
+  'pceholderLastName' => 'Enter Last name',
+  'pceholderFirstName' => 'Enter First name',
+  'pceholderSecondName' => 'Enter Second name',
+  'lblPhoneHome' => 'Home phone number',
+  'lblPhoneWork' => 'Work phone number',
+  'pceholderPhomeHome' => 'Enter Home phone number',
+  'pceholderPhomeWork' => 'Enter Work phone number',
+  'lblCompany' => 'Company',
+  'pceholderCompany' => 'Enter Company',
+  'lblJob' => 'Position',
+  'pceholderJob' => 'Enter Position',
+  'lblWebsite' => 'Website',
+  'pceholderWebsite' => 'https://google.com',
+  'lblAddress' => 'Address',
+  'pceholderAddress' => 'Enter Address',
 ];  

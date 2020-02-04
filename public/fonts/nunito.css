@@ -1,0 +1,84 @@
+@font-face {
+    font-family: 'Nunito';
+    src: local('Nunito Light'), local('Nunito-Light'), url('Nunitolight.woff2') format('woff2'), url('Nunitolight.woff') format('woff'), url('Nunitolight.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Nunito';
+    src: local('Nunito Regular'), local('Nunito-Regular'), url('Nunitoregular.woff2') format('woff2'), url('Nunitoregular.woff') format('woff'), url('Nunitoregular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Nunito';
+    src: local('Nunito SemiBold'), local('Nunito-SemiBold'), url('Nunitosemibold.woff2') format('woff2'), url('Nunitosemibold.woff') format('woff'), url('Nunitosemibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Nunito';
+    src: local('Nunito Italic'), local('Nunito-Italic'), url('Nunitoitalic.woff2') format('woff2'), url('Nunitoitalic.woff') format('woff'), url('Nunitoitalic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Nunito';
+    src: local('Nunito ExtraLight Italic'), local('Nunito-ExtraLightItalic'), url('Nunitoextralightitalic.woff2') format('woff2'), url('Nunitoextralightitalic.woff') format('woff'), url('Nunitoextralightitalic.ttf') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Nunito';
+    src: local('Nunito ExtraBold Italic'), local('Nunito-ExtraBoldItalic'), url('Nunitoextrabolditalic.woff2') format('woff2'), url('Nunitoextrabolditalic.woff') format('woff'), url('Nunitoextrabolditalic.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Nunito';
+    src: local('Nunito ExtraBold'), local('Nunito-ExtraBold'), url('Nunitoextrabold.woff2') format('woff2'), url('Nunitoextrabold.woff') format('woff'), url('Nunitoextrabold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Nunito';
+    src: local('Nunito Light Italic'), local('Nunito-LightItalic'), url('Nunitolightitalic.woff2') format('woff2'), url('Nunitolightitalic.woff') format('woff'), url('Nunitolightitalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Nunito';
+    src: local('Nunito Black'), local('Nunito-Black'), url('Nunitoblack.woff2') format('woff2'), url('Nunitoblack.woff') format('woff'), url('Nunitoblack.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Nunito';
+    src: local('Nunito ExtraLight'), local('Nunito-ExtraLight'), url('Nunitoextralight.woff2') format('woff2'), url('Nunitoextralight.woff') format('woff'), url('Nunitoextralight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Nunito';
+    src: local('Nunito Bold Italic'), local('Nunito-BoldItalic'), url('Nunitobolditalic.woff2') format('woff2'), url('Nunitobolditalic.woff') format('woff'), url('Nunitobolditalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Nunito';
+    src: local('Nunito SemiBold Italic'), local('Nunito-SemiBoldItalic'), url('Nunitosemibolditalic.woff2') format('woff2'), url('Nunitosemibolditalic.woff') format('woff'), url('Nunitosemibolditalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Nunito';
+    src: local('Nunito Bold'), local('Nunito-Bold'), url('Nunitobold.woff2') format('woff2'), url('Nunitobold.woff') format('woff'), url('Nunitobold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Nunito';
+    src: local('Nunito Black Italic'), local('Nunito-BlackItalic'), url('Nunitoblackitalic.woff2') format('woff2'), url('Nunitoblackitalic.woff') format('woff'), url('Nunitoblackitalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
