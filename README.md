@@ -1,9 +1,7 @@
 # Qr-code coding and decoding website
 This website have simple interface. Allows you to create and decode Qr-code.
 
-<p align="center">
-  <img src="https://avatars0.githubusercontent.com/u/25076062?s=400&v=4">
-</p>
+![website](https://user-images.githubusercontent.com/25076062/73794403-0d87ab80-47b1-11ea-878a-c464640e10ba.png)
 
 ## Views
 Project have one master page with set default paremetrs in particular:
