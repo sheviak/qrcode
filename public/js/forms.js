@@ -27,7 +27,7 @@ $(document).ready(function(e){
                 } else {
                     let resObj = $.parseJSON(data);  
                     if(resObj.qrcode_url != null)
-                        $('#output').html('<img src=../' + resObj.qrcode_url + '><br><a href=../' + resObj.qrcode_url + ' download>Скачать файл</a>');
+                        $('#output').html('<img src=../' + resObj.qrcode_url + '><br><a href=../' + resObj.qrcode_url + ' download><img src="../icons/download.png"></a>');
                     else 
                         $('#output').html(resObj.error);
                 }

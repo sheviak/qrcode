@@ -2,19 +2,19 @@
     <p>{{ trans('page.lblSettings') }}</p>
     <div class="form-group text-left">
         <label for="background_color">{{ trans('page.bColor') }}</label>
-        <input name="background_color" type="text" class="form-control" placeholder="{{ trans('page.pceholderBcolor') }}" value="FFFFFF" required>
+        <input name="background_color" type="text" class="form-control" placeholder="{{ trans('page.placeholderBcolor') }}" value="FFFFFF" required>
     </div>
     <div class="form-group text-left">
         <label for="foreground_color">{{ trans('page.fColor') }}</label>
-        <input name="foreground_color" type="text" class="form-control" placeholder="{{ trans('page.pceholderFcolor') }}" value="000000" required>
+        <input name="foreground_color" type="text" class="form-control" placeholder="{{ trans('page.placeholderFcolor') }}" value="000000" required>
     </div>
     <div class="form-group text-left">
         <label for="size">{{ trans('page.sizePicture') }}</label>
-        <input name="size" type="text" class="form-control" placeholder="{{ trans('page.pceholderSize') }}" value="300" required>
+        <input name="size" type="text" class="form-control" placeholder="{{ trans('page.placeholderSize') }}" value="300" required>
     </div>
     <div class="form-group text-left">
         <label for="margin">{{ trans('page.margin') }}</label>
-        <input name="margin" type="text" class="form-control" placeholder="{{ trans('page.pceholdermargin') }}" value="1" required>
+        <input name="margin" type="text" class="form-control" placeholder="{{ trans('page.placeholdermargin') }}" value="1" required>
     </div>
     <div class="form-group text-left">
         <label for="errors_correction">{{ trans('page.error_correction') }}</label>
