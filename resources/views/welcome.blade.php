@@ -5,8 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>QR-CODE</title>
         <script src="../js/jquery.js"></script>
-        <script src="../js/jquery.session.js"></script>
-        
         <script src="../js/forms.js"></script>
         <link rel="stylesheet" href="../fonts/nunito.css">
         <link rel="stylesheet" href="../styles/bootstrap.min.css">

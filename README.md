@@ -43,6 +43,10 @@ Used a number of open source projects to work properly:
     ```sh
     $ composer update
     ```
+- add folders: qrcode_images, logo, decode_qrcode on the way to:
+    - project_name/public/qrcode_images
+    - project_name/public/decode_qrcode
+    - project_name/public/logo
 - run website
 
 Please make sure that you are using the version of PHP 7+
