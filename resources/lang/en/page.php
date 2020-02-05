@@ -1,6 +1,15 @@
 <?php
 
 return [
+  /* заголовки */
+  'titleLink' => 'LINK',
+  'titleEmail' => 'EMAIL',
+  'titleGeo' => 'GEO',
+  'titlePhone' => 'TELEPHONE',
+  'titleSms' => 'SMS',
+  'titleWifi' => 'WI-FI',
+  'titleVcard' => 'VCARD',
+  'titleDecode' => 'DECODE',
   /* дефолтные параметры */
   'create' => 'Create',
   'lblSettings' => 'Settings',
@@ -30,7 +39,7 @@ return [
   'lblLatitude' => 'Latitude',
   'placeholderLatitude' => 'Enter Latitude (50.45466)',
   'lblLongitude' => 'Longitude',
-  'placeholderLongitude' => 'Enter (30.5238)',
+  'placeholderLongitude' => 'Enter Longitude (30.5238)',
   /* для страницы Phone number */
   'lblPhone' => 'Phone number',
   'placeholderPhome' => 'Enter Phone number',

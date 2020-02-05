@@ -33,7 +33,7 @@ $(document).ready(function(e){
                 }
             },
             error: function(){
-                $('#output').text('Ошибка! Данные не были отправлены!');
+                $('#output').text('Error! No data was sent');
             }
         });
         return false;

@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>QR-CODE</title>
         <script src="../js/jquery.js"></script>
+        <script src="../js/jquery.session.js"></script>
+        
         <script src="../js/forms.js"></script>
         <link rel="stylesheet" href="../fonts/nunito.css">
         <link rel="stylesheet" href="../styles/bootstrap.min.css">
@@ -28,14 +30,14 @@
                 </div>
                 <div class="title m-b-md">QR-CODE</div>
                 <div class="links">
-                    <a href="link">LINK</a>
-                    <a href="email">EMAIL</a>
-                    <a href="geo">GEO</a>
-                    <a href="tel">TELEPHONE</a>
-                    <a href="sms">SMS</a>
-                    <a href="wifi">WI-FI</a>
-                    <a href="vcard">VCARD</a>
-                    <a href="decode">DECODE</a>
+                    <a href="link">{{ trans('page.titleLink') }}</a>
+                    <a href="email">{{ trans('page.titleEmail') }}</a>
+                    <a href="geo">{{ trans('page.titleGeo') }}</a>
+                    <a href="tel">{{ trans('page.titlePhone') }}</a>
+                    <a href="sms">{{ trans('page.titleSms') }}</a>
+                    <a href="wifi">{{ trans('page.titleWifi') }}</a>
+                    <a href="vcard">{{ trans('page.titleVcard') }}</a>
+                    <a href="decode">{{ trans('page.titleDecode') }}</a>
                 </div>
                 <div class="container m-3 p-3">
                     <form id="form-data" action="javascript:void(0)" enctype="multipart/form-data">

@@ -1,6 +1,15 @@
 <?php
 
 return [
+  /* заголовки */
+  'titleLink' => 'ПОСИЛАННЯ',
+  'titleEmail' => 'ПОШТА',
+  'titleGeo' => 'ГЕОПОЗІЦІЯ',
+  'titlePhone' => 'ТЕЛЕФОН',
+  'titleSms' => 'SMS',
+  'titleWifi' => 'WI-FI',
+  'titleVcard' => 'ВІЗИТКА',
+  'titleDecode' => 'РОЗПІЗНАТИ',
   /* дефолтные параметры */
   'create' => 'Створити',
   'lblSettings' => 'Налаштування',
