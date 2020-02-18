@@ -13,31 +13,33 @@
     <body>
         <div class="flex-center p-3">
             <div class="content">
-                <div class="text-right">
-                    <ul class="list-inline">
-                        <li class="list-inline-item">
-                            <a href="{{ route('locale', ['locale' => 'en']) }}">EN</a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="{{ route('locale', ['locale' => 'ru']) }}">RU</a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="{{ route('locale', ['locale' => 'ua']) }}">UA</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="title m-b-md">QR-CODE</div>
-                <div class="links">
-                    <a href="link">{{ trans('page.titleLink') }}</a>
-                    <a href="email">{{ trans('page.titleEmail') }}</a>
-                    <a href="geo">{{ trans('page.titleGeo') }}</a>
-                    <a href="tel">{{ trans('page.titlePhone') }}</a>
-                    <a href="sms">{{ trans('page.titleSms') }}</a>
-                    <a href="wifi">{{ trans('page.titleWifi') }}</a>
-                    <a href="vcard">{{ trans('page.titleVcard') }}</a>
-                    <a href="decode">{{ trans('page.titleDecode') }}</a>
-                </div>
-                <div class="container m-3 p-3">
+                <header>
+                    <div class="text-right">
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <a href="{{ route('locale', ['locale' => 'en']) }}">EN</a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="{{ route('locale', ['locale' => 'ru']) }}">RU</a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="{{ route('locale', ['locale' => 'ua']) }}">UA</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="title m-b-md">QR-CODE</div>
+                    <div class="links">
+                        <a href="link">{{ trans('page.titleLink') }}</a>
+                        <a href="email">{{ trans('page.titleEmail') }}</a>
+                        <a href="geo">{{ trans('page.titleGeo') }}</a>
+                        <a href="tel">{{ trans('page.titlePhone') }}</a>
+                        <a href="sms">{{ trans('page.titleSms') }}</a>
+                        <a href="wifi">{{ trans('page.titleWifi') }}</a>
+                        <a href="vcard">{{ trans('page.titleVcard') }}</a>
+                        <a href="decode">{{ trans('page.titleDecode') }}</a>
+                    </div>
+                </header>
+                <main class="container m-3 p-3">
                     <form id="form-data" action="javascript:void(0)" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="row">
@@ -62,7 +64,8 @@
                         @endif
                     </form>
                     <div id="output" class="col-sm"></div>
-                </div>
+                </main>
+                <footer class="footer-copyright text-center py-3">© <?php echo date ( 'Y' ) ; ?> Copyright: Kyrylo Sheviak</footer>
             </div>
         </div>
     </body>

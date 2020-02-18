@@ -126,75 +126,20 @@ class Controller extends BaseController
     // проверить с другого тел на распознование
     function createSMS(Request $request)
     {
-        file_put_contents(
-            $this->path,
-            $this->qrcode->SMS($request->phoneNumber, $request->message)
-        );
+        $this->qrcode->generate("SMSTO:" . $request->phoneNumber . ":" . $request->message, $this->path);
     }
 
     function createWiFi(Request $request)
     {
-        if($request->hidden != null && 
-            $request->hidden == "on" && 
-            $request->ssid != "" && 
-            $request->pass != "" &&
-            $request->typeNetwork != ""){
-
-            file_put_contents(
-                $this->path,
-                $this->qrcode->wiFi([
-                    'encryption' => $request->typeNetwork,
-                    'ssid' => $request->ssid,
-                    'password' => $request->pass,
-                    'hidden' => true
-                ])
-            );
-        }
-
-        // Подключается к открытой сети WiFi.
-        if($request->hidden == null && 
-            $request->pass == "" &&
-            $request->ssid == "" &&
-            $request->typeNetwork == ""){
-
-            file_put_contents(
-                $this->path,
-                $this->qrcode->wiFi([
-                    'ssid' => $request->ssid,
-                ])
-            );
-        }
-
-        // Подключается к открытой, скрытой сети WiFi.
-        if($request->hidden == "on" && 
-            $request->ssid != "" &&
-            $request->pass == "" &&
-            $request->typeNetwork == ""){
-            
-            file_put_contents(
-                $this->path,
-                $this->qrcode->wiFi([
-                    'ssid' => $request->ssid,
-	                'hidden' => 'true'
-                ])
-            );
-        }
-
-        // Подключается к защищенной сети.
-        if($request->hidden == null &&
-            $request->ssid != "" &&
-            $request->pass != "" &&
-            $request->typeNetwork != ""){
-            
-            file_put_contents(
-                $this->path,
-                $this->qrcode->wiFi([
-                    'ssid' => $request->ssid,
-                    'encryption' => $request->typeNetwork,
-                    'password' => $request->pass
-                ])
-            );
-        }
+        file_put_contents(
+            $this->path,
+            $this->qrcode->wiFi([
+                'encryption' => $request->typeNetwork,
+                'ssid' => $request->ssid,
+                'password' => $request->pass,
+                'hidden' => $request->hidden == "on" ? true : false
+            ])
+        );
     }
 
     function createVCard(Request $request)

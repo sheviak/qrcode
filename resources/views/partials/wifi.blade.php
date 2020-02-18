@@ -10,7 +10,7 @@
     <label for="typeNetwork">{{ trans('page.lblTypeNetwork') }}</label>
     <select name="typeNetwork" class="form-control">
         <option value="none">{{ trans('page.encryption') }}</option>
-        <option value="WPA/WPA2">WPA/WPA2</option>
+        <option value="WPA">WPA/WPA2</option>
         <option value="WEP">WEP</option>
     </select>
 </div>

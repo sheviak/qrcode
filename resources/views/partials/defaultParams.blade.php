@@ -29,7 +29,6 @@
         <label for="format">{{ trans('page.formatFile') }}</label>
         <select name="format" class="form-control" required>
             <option value="png">PNG</option>
-            <option value="eps">EPS</option>
             <option value="svg">SVG</option>
         </select>
     </div>
